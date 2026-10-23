@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wetherspoons Food Menu | Best Pub Food Deals</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f8f5f0;
+      color: #222;
+      line-height: 1.6;
+    }
+
+    /* Header */
+    header {
+      background: #1a1a1a;
+      color: white;
+      padding: 18px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+
+    .header-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: #e8b923;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 25px;
+      font-weight: 500;
+      font-size: 0.95rem;
+    }
+
+    nav a:hover {
+      color: #e8b923;
+    }
+
+    /* Hero */
+    .hero {
+      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://picsum.photos/id/292/1400/500') center/cover;
+      color: white;
+      text-align: center;
+      padding: 90px 20px;
+    }
+
+    .hero h1 {
+      font-size: 2.8rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      opacity: 0.95;
+      margin-bottom: 25px;
+    }
+
+    .btn {
+      display: inline-block;
+      background: #e8b923;
+      color: #111;
+      padding: 13px 32px;
+      border-radius: 8px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: #f0c93a;
+      transform: translateY(-2px);
+    }
+
+    /* Banner Ad */
+    .ad-banner {
+      text-align: center;
+      padding: 15px;
+      background: #fff;
+      border-bottom: 1px solid #eee;
+    }
+
+    /* Container */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 50px 20px;
+    }
+
+    .section-title {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 30px;
+      text-align: center;
+      color: #1a1a1a;
+    }
+
+    .section-title span {
+      color: #e8b923;
+    }
+
+    /* Menu Grid */
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 25px;
+    }
+
+    .menu-card {
+      background: white;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+      transition: 0.3s;
+      cursor: pointer;
+    }
+
+    .menu-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+    }
+
+    .menu-card img {
+      width: 100%;
+      height: 190px;
+      object-fit: cover;
+    }
+
+    .menu-info {
+      padding: 18px;
+    }
+
+    .menu-info h3 {
+      font-size: 1.15rem;
+      margin-bottom: 8px;
+    }
+
+    .menu-info p {
+      color: #666;
+      font-size: 0.9rem;
+      margin-bottom: 12px;
+    }
+
+    .price {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #e8b923;
+    }
+
+    /* Categories */
+    .categories {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+
+    .cat-btn {
+      background: white;
+      border: 2px solid #e8b923;
+      color: #1a1a1a;
+      padding: 8px 20px;
+      border-radius: 30px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .cat-btn:hover, .cat-btn.active {
+      background: #e8b923;
+      color: #111;
+    }
+
+    /* Footer */
+    footer {
+      background: #1a1a1a;
+      color: #aaa;
+      text-align: center;
+      padding: 40px 20px;
+      margin-top: 40px;
+    }
+
+    footer p {
+      margin-bottom: 8px;
+    }
+
+    @media (max-width: 700px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+      nav a {
+        margin-left: 12px;
+        font-size: 0.85rem;
+      }
+      .menu-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="header-content">
+      <div class="logo">Wetherspoons Food</div>
+      <nav>
+        <a href="#menu">Menu</a>
+        <a href="#deals">Deals</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <h1>Best Pub Food at Wetherspoons</h1>
+    <p>Discover club deals, steaks, burgers & classic British meals</p>
+    <a href="#menu" class="btn">View Full Menu</a>
+  </section>
+
+  <!-- Ad Banner Top -->
+  <div class="ad-banner" id="bannerTop"></div>
+
+  <!-- Menu Section -->
+  <div class="container" id="menu">
+    <h2 class="section-title">Popular <span>Menu</span></h2>
+
+    <div class="categories">
+      <div class="cat-btn active">All</div>
+      <div class="cat-btn">Burgers</div>
+      <div class="cat-btn">Steaks</div>
+      <div class="cat-btn">Club Deals</div>
+      <div class="cat-btn">Desserts</div>
+    </div>
+
+    <div class="menu-grid">
+
+      <div class="menu-card">
+        <img src="cheese burger.jpg" alt="Burger">
+        <div class="menu-info">
+          <h3>Classic Cheeseburger</h3>
+          <p>Beef patty, cheese, lettuce, tomato & special sauce</p>
+          <div class="price">£6.49</div>
+        </div>
+      </div>
+
+      <div class="menu-card">
+        <img src="0oz Rump Steak.jpg" alt="Steak">
+        <div class="menu-info">
+          <h3>10oz Rump Steak</h3>
+          <p>Served with chips, peas and peppercorn sauce</p>
+          <div class="price">£11.99</div>
+        </div>
+      </div>
+
+      <div class="menu-card">
+        <img src="Fish & Chips.jpg" alt="Fish">
+        <div class="menu-info">
+          <h3>Fish & Chips</h3>
+          <p>Crispy battered cod with thick-cut chips</p>
+          <div class="price">£9.79</div>
+        </div>
+      </div>
+
+      <div class="menu-card">
+        <img src="Chicken Club Sandwich.jpg" alt="Chicken">
+        <div class="menu-info">
+          <h3>Chicken Club Sandwich</h3>
+          <p>Grilled chicken, bacon, egg & mayonnaise</p>
+          <div class="price">£7.99</div>
+        </div>
+      </div>
+
+      <div class="menu-card">
+        <img src="Traditional Breakfast.jpg" alt="Breakfast">
+        <div class="menu-info">
+          <h3>Traditional Breakfast</h3>
+          <p>Sausage, bacon, eggs, beans, toast & more</p>
+          <div class="price">£5.99</div>
+        </div>
+      </div>
+
+      <div class="menu-card">
+        <img src="Chocolate Fudge Cake.jpg" alt="Dessert">
+        <div class="menu-info">
+          <h3>Chocolate Fudge Cake</h3>
+          <p>Warm chocolate cake with ice cream</p>
+          <div class="price">£4.49</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Ad Banner Bottom -->
+  <div class="ad-banner" id="bannerBottom"></div>
+
+  <!-- Footer -->
+  <footer>
+    <p><strong>Wetherspoons Food Guide</strong></p>
+    <p>This is an unofficial fan website about Wetherspoons menu & deals.</p>
+    <p>© 2026 Wetherspoons Food Menu</p>
+  </footer>
+
+  <!-- ========== ADSTERRA + HISTATS ========== -->
+
+   <!-- Histats.com  (div with counter) --><div id="histats_counter"></div>
+<!-- Histats.com  START  (aync)-->
+<script type="text/javascript">var _Hasync= _Hasync|| [];
+_Hasync.push(['Histats.start', '1,5059498,4,2,120,55,00000010']);
+_Hasync.push(['Histats.fasi', '1']);
+_Hasync.push(['Histats.track_hits', '']);
+(function() {
+var hs = document.createElement('script'); hs.type = 'text/javascript'; hs.async = true;
+hs.src = ('//s10.histats.com/js15_as.js');
+(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(hs);
+})();</script>
+<noscript><a href="/" target="_blank"><img  src="//sstatic1.histats.com/0.gif?5059498&101" alt="" border="0"></a></noscript>
+<!-- Histats.com  END  -->
+
+  <script>
+    // ===== ADSTERRA SETTINGS =====
+    const popunderLink = "https://ahuramazda.org/1/fb2d9ff3dc9171badce2fa99872cd6e8";        // Popunder
+    const smartlink = "https://asiafilm.org/4/59887fc01651fa0d321f8c8be30dd3dd";             // Smartlink
+
+    const bannerTopCode = ``;     // Banner atas
+    const bannerBottomCode = ``;  // Banner bawah
+    // =============================
+
+    // Load Popunder
+    if (popunderLink) {
+      const s = document.createElement('script');
+      s.src = popunderLink;
+      document.body.appendChild(s);
+    }
+
+    // Smartlink on first click
+    let smartlinkOpened = false;
+    document.body.addEventListener('click', function() {
+      if (!smartlinkOpened && smartlink) {
+        window.open(smartlink, '_blank');
+        smartlinkOpened = true;
+      }
+    }, { once: true });
+
+    // Load Banners
+    if (bannerTopCode) document.getElementById('bannerTop').innerHTML = bannerTopCode;
+    if (bannerBottomCode) document.getElementById('bannerBottom').innerHTML = bannerBottomCode;
+  </script>
+<script>
+  atOptions = {
+    'key' : '362d145dd8661156d9a8c8950fb1c5ac',
+    'format' : 'iframe',
+    'height' : 250,
+    'width' : 300,
+    'params' : {}
+  };
+</script>
+<script src="https://bicea.org/22/362d145dd8661156d9a8c8950fb1c5ac"></script>
+</body>
+</html>
